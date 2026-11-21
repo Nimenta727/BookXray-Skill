@@ -41,7 +41,7 @@ class XHTMLText(HTMLParser):
         if self.skip:
             return
         if re.fullmatch(r"h[1-6]", tag):
-            self.parts.append("\n\n" + "#" * tag[1] + " ")
+            self.parts.append("\n\n" + "#" * int(tag[1]) + " ")
         elif tag in {"p", "div", "section", "article", "li", "blockquote", "br", "tr"}:
             self.parts.append("\n")
 

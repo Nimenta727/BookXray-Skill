@@ -5,7 +5,7 @@ description: Evidence-first deep book decomposition with source verification, ch
 
 # BookXray Agent Skill (v0.1)
 
-Purpose: build a complete, useful, original explanation of a book while keeping the original source, AI interpretation and audit evidence separate. The CLI prepares and validates; **the agent must actually perform the intellectual analysis**.
+Purpose: build a complete, useful, original explanation of a book while keeping the original source, AI interpretation and audit evidence separate. The CLI prepares and validates. v0.3 also supports explicit opt-in model execution, review, targeted repair and resumable checkpoints.
 
 ## Required workflow
 
@@ -33,3 +33,8 @@ Purpose: build a complete, useful, original explanation of a book while keeping 
 manifest.json = detected structure and warnings; source.txt = normalized input; work_packets.jsonl = source-grounded segments; units.json = agent-authored analysis; audit.json / audit.md = deterministic checks; analysis.md = Markdown report created only after an audit pass.
 
 For future graph, retrieval, semantic evaluations and agent orchestration, see docs/architecture.md and docs/roadmap.md.
+
+
+## v0.3 automated workflow
+
+After prepare, set BOOKXRAY_API_KEY and explicitly consent to transmitting excerpts to the chosen model endpoint using 'bookxray analyze PROJECT --model GENERATOR --review-model REVIEWER --allow-remote'. Use distinct model IDs for generator and reviewer unless the user explicitly opts out of that independence safeguard. Never send private or copyrighted books to third parties without permission. Audit and export remain required; review failure blocks export. Resume using the same project and model configuration. For independent human-gold concept recall, use 'bookxray evaluate PROJECT --gold GOLD.json'. See docs/evaluation-plan.md.

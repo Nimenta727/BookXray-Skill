@@ -4,13 +4,13 @@
 
 Local file ingestion, EPUB spine parsing, optional PDF adapters, manifests, exact source packets, manual Agent-compatible units, deterministic evidence/section audit, export gate, schema, bilingual README and unit tests.
 
-## v0.2: analysis automation
+## v0.2: analysis automation (implemented foundation)
 
-Pluggable model adapter with explicit consent for off-device book data; structured section-level extraction; retries, timeouts and resumable processing. Add reliable hierarchical TOC mapping and source extraction quality flags.
+OpenAI-compatible model adapter with explicit consent, JSON unit extraction, bounded retries, and per-packet checkpoint/resume implemented. Better hierarchical TOC and parser quality flags remain pending.
 
-## v0.3: evaluation
+## v0.3: evaluation (initial implementation)
 
-Gold book/section inventory; semantic checks; review workflows; evidence and omission dashboards with uncertainty. Collect real measurements, not decorative charts.
+Independent reviewer-model pass with targeted repair, blocked export on review failure, and human-annotated gold concept-recall evaluator implemented. Real gold datasets, robust semantic benchmarks, and dashboard remain pending.
 
 ## v0.4: retrieval / teaching
 

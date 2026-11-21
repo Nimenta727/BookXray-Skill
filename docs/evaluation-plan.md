@@ -18,3 +18,14 @@ Python tests cover Markdown sections, empty-agent audit failure, exact evidence 
 ## Reporting
 
 Only show measured quantities: section hits, evidence offsets and actionable problems. Concept recall is null until an independently labeled sample exists. No fabricated benchmark scores. Distinguish parser quality, semantic fidelity and pedagogical helpfulness. Add time, environment, model version, books permitted for benchmarking and reproducible commands for every future test.
+
+
+## v0.3 new tests and controls
+
+- Model responses are JSON-validated and exact quotes are anchored to local packet offsets.
+- Independent model review can reject units, supply findings and trigger up to N targeted repairs.
+- Each completed packet is checkpointed; re-run with identical source/model/settings to resume.
+- Reviewer failures and unresolved packets block report export.
+- Gold evaluator uses independent concept labels and manually matched unit IDs; reports recall only, never fabricates precision.
+- Remote model requests require explicit --allow-remote and BOOKXRAY_API_KEY.
+- Real human-gold datasets and live provider interoperability remain pending.

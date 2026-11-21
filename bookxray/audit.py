@@ -141,6 +141,13 @@ def write_report(folder: Path, report: dict) -> None:
 
 def export(folder: Path) -> Path:
     report = validate(folder)
+    checkpoint = folder / "agent_checkpoint.json"
+    if checkpoint.exists():
+        state = json.loads(checkpoint.read_text(encoding="utf-8"))
+        if state.get("failed") or len(state.get("completed", {})) != len(read_project(folder)[2]):
+            report["status"] = "fail"
+            report["issues"].append({"severity":"error","code":"REVIEW_INCOMPLETE",
+                "detail":"Model review has incomplete or failed packets"})
     write_report(folder, report)
     if report["status"] != "pass":
         raise RuntimeError("Audit failed; analysis export blocked. See audit.md")
